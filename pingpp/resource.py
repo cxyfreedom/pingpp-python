@@ -366,8 +366,8 @@ class Transfer(CreateableAPIResource, ListableAPIResource):
         _instance = cls(id)
 
         url = _instance.instance_url()
-        response = requestor.request('put', url, params)
-        return convert_to_pingpp_object(response)
+        response, api_key= requestor.request('put', url, params)
+        return convert_to_pingpp_object(response, api_key)
 
 
 class Refund(UpdateableAPIResource):
